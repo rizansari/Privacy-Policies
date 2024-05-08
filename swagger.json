@@ -1,0 +1,253 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Social Scrape",
+    "version": "0.0.1"
+  },
+  "tags": [
+    {
+      "name": "twitter",
+      "description": "Twitter APIs"
+    }
+  ],
+  "paths": {
+    "/twitter/user-info": {
+      "get": {
+        "tags": [
+          "twitter"
+        ],
+        "summary": "Fetch User Information",
+        "description": "Fetch User Information by passing username",
+        "operationId": "fetchUserByUsername",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "Username of Twitter Account",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TwitterUser"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid username"
+          }
+        }
+      }
+    },
+    "/user-tweets": {
+      "get": {
+        "tags": [
+          "twitter"
+        ],
+        "summary": "Fetch Tweets of a User",
+        "description": "Fetch Tweets of User by passing userid",
+        "operationId": "fetchTweetsByUserid",
+        "parameters": [
+          {
+            "name": "userid",
+            "in": "query",
+            "description": "Userid of Twitter Account",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TwitterTweets"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid userid"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TwitterUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier for the user"
+          },
+          "screen_name": {
+            "type": "string",
+            "description": "The Twitter handle of the user"
+          },
+          "name": {
+            "type": "string",
+            "description": "The display name of the user"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the user"
+          },
+          "location": {
+            "type": "string",
+            "description": "The location of the user"
+          },
+          "profile_image_url": {
+            "type": "string",
+            "description": "The URL of the user's profile image"
+          },
+          "followers_count": {
+            "type": "integer",
+            "description": "The number of followers the user has"
+          },
+          "friends_count": {
+            "type": "integer",
+            "description": "The number of users the user is following"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The date and time when the user account was created"
+          },
+          "statuses_count": {
+            "type": "integer",
+            "description": "The number of tweets the user has posted"
+          },
+          "verified": {
+            "type": "boolean",
+            "description": "Indicates if the user account is verified"
+          },
+          "protected": {
+            "type": "boolean",
+            "description": "Indicates if the user has protected their tweets"
+          },
+          "url": {
+            "type": "string",
+            "description": "The URL associated with the user's profile"
+          },
+          "entities": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "object",
+                "properties": {
+                  "urls": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "description": "The URL"
+                        },
+                        "expanded_url": {
+                          "type": "string",
+                          "description": "The expanded URL"
+                        },
+                        "display_url": {
+                          "type": "string",
+                          "description": "The display URL"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "TwitterTweets": {
+        "properties": {
+          "tweets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The unique identifier for the tweet"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "The date and time when the tweet was created"
+                },
+                "text": {
+                  "type": "string",
+                  "description": "The text content of the tweet"
+                },
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The unique identifier for the user"
+                    },
+                    "screen_name": {
+                      "type": "string",
+                      "description": "The Twitter handle of the user"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The display name of the user"
+                    },
+                    "profile_image_url": {
+                      "type": "string",
+                      "description": "The URL of the user's profile image"
+                    }
+                  }
+                },
+                "retweet_count": {
+                  "type": "integer",
+                  "description": "The number of times the tweet has been retweeted"
+                },
+                "favorite_count": {
+                  "type": "integer",
+                  "description": "The number of times the tweet has been favorited"
+                },
+                "hashtags": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "The hashtags used in the tweet"
+                },
+                "mentions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "The usernames mentioned in the tweet"
+                },
+                "is_retweet": {
+                  "type": "boolean",
+                  "description": "Indicates if the tweet is a retweet"
+                },
+                "is_quote": {
+                  "type": "boolean",
+                  "description": "Indicates if the tweet is a quote tweet"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
