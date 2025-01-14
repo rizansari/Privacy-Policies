@@ -1,11 +1,44 @@
-## Introduction
-Password Vault is an application that helps you store all your login credentials locally on your mobile phone. It doesn't have access to Internet so it cannot send anything over the air. Passwords are saved using Master Key using AES Encryption. Used will choose his/her Master key when application is launched first time. It also has option to scan 2-factor authentication QR codes or add it manually, to show 2-step verification codes when needed to login.
+# Privacy Policy for Password Vault
 
-## User Data
-No data has been collected directly or indirectly. Data is saved only on device. Application has option to download database to local folder on device, which is Sqlite database with encrypted Password and 2FA Keys only.
+## 1. Introduction
+This Privacy Policy governs the use of Password Vault, a mobile application developed by Rizwan Ansari. The policy describes how we handle user data and protect user privacy.
 
-## How Secure is User Data on Device
-Master Password is stored in Application Storage on Device. Credentials information is stored in Sqlite Database, only Password and 2FA Key is Encrypted using AES encryption using the Master key setup by User.
+## 2. Data Collection and Storage
+### 2.1 Local Data Storage
+- Password Vault stores all login credentials locally on the user's mobile device
+- No data is transmitted over the internet or collected by the developer
+- All sensitive information is encrypted using AES encryption with a user-defined Master Key
 
-## Contact Information
-Email: <amiableansari82@gmail.com>
+### 2.2 Types of Data Stored
+- Login credentials
+- 2-factor authentication (2FA) codes
+- User-generated encryption key
+
+## 3. Data Security
+### 3.1 Encryption
+- Credentials are encrypted using AES encryption
+- Master Key is stored securely in device application storage
+- SQLite database stores encrypted passwords and 2FA keys
+
+## 4. User Control
+- Users can create a backup of their encrypted database to a local device folder
+
+## 5. Data Retention
+- User data is retained locally on the device
+- Users have complete control over data deletion
+
+## 6. Compliance and Security
+- No internet connectivity ensures no remote data transmission
+- Encryption protects user data from unauthorized access
+
+## 7. Contact Information
+For privacy-related inquiries, please contact:
+- Email: amiableansari82@gmail.com
+
+## 8. Policy Updates
+This privacy policy may be updated periodically. Users will be notified of significant changes.
+
+## 9. Consent
+By using Password Vault, you consent to the terms of this privacy policy.
+
+Last Updated: 14-Jan-2025
